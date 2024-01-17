@@ -58,5 +58,7 @@ typedef struct stream_s
 extern stream_t *argus;
 
 void check_arg(int argc);
+void init_arg();
+void mallocerr();
 
 #endif

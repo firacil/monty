@@ -14,3 +14,28 @@ void init_arg()
 	argus->st = NULL;
 	argus->line = NULL;
 }
+
+/**
+ * mallocerr - handles err when allocating memory dynamically.
+ * Return: Nothing.
+ */
+
+void mallocerr(void)
+{
+	dprintf(2, "Error: malloc failed\n");
+	free_args();
+	exit(EXIT_FAILURE);
+}
+
+/**
+ * read_fail - handles error when reading file fails.
+ * @fn: name of file that failed.
+ * Return: Nothing.
+ */
+
+void read_fail(char *fn)
+{
+	dprintf(stderr, "Error: Can't open file %s\n", fn);
+	free_args();
+	exit(EXIT_FAILURE);
+}
