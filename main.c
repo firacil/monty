@@ -9,10 +9,9 @@
 
 int main(int argc, char **argv)
 {
-	if (argc != 2)
-	{
-		dprintf(2, "USAGE: monty file\n");
-		exit(EXIT_FAILURE);
-	}
+	(void) argv;
+
+	check_arg(argc);
+
 	return (0);
 }
