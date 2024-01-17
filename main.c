@@ -30,7 +30,7 @@ int main(int argc, char *av[])
 	}
 
 	for (n = 0; getline(&(string[n]), &buf_size, fd) > 0; n++)
-			;
+		;
 
 	runner(string, stack);
 	flist(string);

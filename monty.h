@@ -48,6 +48,14 @@ typedef struct instruction_s
 
 void runner(char *string[], stack_t *stack);
 void flist(char *arr[]);
+int nlfind(char *list);
+int combfind(char *list, int ln);
+int pushit(char *list, int ln);
 void free_stack(stack_t *head);
+int _strcmp(char *pcode, char *list);
+
+/* Instructions */
+void pall(stack_t **stack, unsigned int line_no);
+void push(stack_t **stack, unsigned int line_no, int n);
 
 #endif
