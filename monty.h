@@ -72,5 +72,10 @@ void free_args();
 void read_it(char *fn);
 void free_head(void);
 void free_stack(stack_t *h);
+void findins(void);
+void insterr(void);
+void free_tokens(void);
+void stclosed(void);
+void runin(void);
 
 #endif
