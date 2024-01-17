@@ -13,6 +13,8 @@ void init_arg()
 
 	argus->st = NULL;
 	argus->line = NULL;
+	argus->n_tokens = 0;
+	argus->line_no = 0;
 }
 
 /**
