@@ -57,5 +57,6 @@ int _strcmp(char *pcode, char *list);
 /* Instructions */
 void pall(stack_t **stack, unsigned int line_no);
 void push(stack_t **stack, unsigned int line_no, int n);
+void pop(stack_t **stack, unsigned int line_no);
 
 #endif

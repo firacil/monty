@@ -13,6 +13,7 @@ void runner(char *string[], stack_t *stack)
 
 	instruction_t st[] = {
 		{"pall", pall},
+		{"pop", pop},
 		{"null", NULL}
 	};
 
