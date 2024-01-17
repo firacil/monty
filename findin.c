@@ -9,14 +9,13 @@ void findins(void)
 {
 	int i;
 	instruction_t instructions[] = {
-		{"push", &push}, {"pop", &pop},
-		{"pall", &pall}, {"pint", &pint},
+		{"push", &push}, {"pall", &pall},
 		{NULL, NULL}
 	};
 
 	if (argus->n_tokens == 0) /* number of instruction */
 		return;
-	for (i = 0; instruction[i].opcode != NULL; i++)
+	for (i = 0; instructions[i].opcode != NULL; i++)
 	{
 		/* comparsion will take place now */
 		if (strcmp(instructions[i].opcode, argus->tokens[0]) == 0)
@@ -56,7 +55,7 @@ void free_tokens(void)
 
 	if (argus->tokens == NULL)
 		return;
-	while (argus->tokens[i]);
+	while (argus->tokens[i])
 	{
 		free(argus->tokens[i]);
 		i++;

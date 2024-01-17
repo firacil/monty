@@ -78,6 +78,10 @@ void free_tokens(void);
 void stclosed(void);
 void runin(void);
 void tokenize(void);
+int is_no(char *s);
 
+/* prototype of Instructions */
+void push(stack_t **stack, unsigned int line_no);
+void pall(stack_t **stack, unsigned int line_no);
 
 #endif

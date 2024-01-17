@@ -19,8 +19,15 @@ int main(int argc, char **argv)
 
 	while (getline(&argus->line, &i, argus->st) != -1)
 	{
-		printf("%s", argus->line);
+		argus->line_no += 1;
+		tokenize();
+		findins();
+		runin();
+		free_tokens();
 	}
+
+	stclosed();
+	free_args();
 
 	return (0);
 }
