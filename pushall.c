@@ -4,7 +4,7 @@
  * push - pushes element to the stack.
  * @stack: pointer to head of stack.
  * @line_no: file's line number
- * @n: variable
+ * @n: variable data
  * Return: address of new element.
  */
 void push(stack_t **stack, unsigned int line_no, int n)
@@ -38,6 +38,9 @@ void pall(stack_t **stack, unsigned int line_no)
 {
 	stack_t *head = *stack;
 	(void)line_no;
+
+	if (*stack == NULL)
+		return;
 
 	while (head)
 	{
