@@ -41,6 +41,22 @@ typedef struct instruction_s
 	void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
+/**
+ * struct stream_s - variable holder.
+ * @st: File that connect stream from file.
+ * @line: string that is line of the text read from stream
+ *
+ * Description: it is variables holder that will
+ * be used in functions for project.
+ */
+typedef struct stream_s
+{
+	FILE *st;
+	char *line;
+} stream_t;
+
+extern stream_t *argus;
+
 void check_arg(int argc);
 
 #endif
