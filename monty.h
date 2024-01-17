@@ -77,5 +77,7 @@ void insterr(void);
 void free_tokens(void);
 void stclosed(void);
 void runin(void);
+void tokenize(void);
+
 
 #endif
