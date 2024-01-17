@@ -60,5 +60,7 @@ extern stream_t *argus;
 void check_arg(int argc);
 void init_arg();
 void mallocerr();
+void read_fail(char *fn);
+void free_args();
 
 #endif
