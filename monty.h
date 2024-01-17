@@ -47,5 +47,7 @@ typedef struct instruction_s
 /* Prototypes */
 
 void runner(char *string[], stack_t *stack);
+void flist(char *arr[]);
+void free_stack(stack_t *head);
 
 #endif
