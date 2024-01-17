@@ -1,5 +1,7 @@
 #include "monty.h"
 
+stream_t *argus = NULL;
+
 /**
  * main - interpreter of mony language.
  * @argc: argument count.

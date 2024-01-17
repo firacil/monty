@@ -35,7 +35,7 @@ void mallocerr(void)
 
 void read_fail(char *fn)
 {
-	dprintf(stderr, "Error: Can't open file %s\n", fn);
+	dprintf(2, "Error: Can't open file %s\n", fn);
 	free_args();
 	exit(EXIT_FAILURE);
 }

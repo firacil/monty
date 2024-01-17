@@ -53,6 +53,13 @@ typedef struct stream_s
 {
 	FILE *st;
 	char *line;
+	unsigned int line_no;
+	char **tokens;
+	int n_tokens;
+	instruction_t *instruction;
+	stack_t *head;
+	int stack;
+        int stlen;
 } stream_t;
 
 extern stream_t *argus;
@@ -62,5 +69,8 @@ void init_arg();
 void mallocerr();
 void read_fail(char *fn);
 void free_args();
+void read_it(char *fn);
+void free_head(void);
+void free_stack(stack_t *h);
 
 #endif
