@@ -39,7 +39,7 @@ void pall(stack_t **stack, unsigned int line_no)
 	stack_t *head = *stack;
 	(void)line_no;
 
-	if (*stack == NULL)
+	if (head == NULL)
 		return;
 
 	while (head)
