@@ -8,16 +8,19 @@
 
 void free_stack(stack_t *head)
 {
-	stack_t *node = head;
+	stack_t *current = head;
+	stack_t *next;
 
-	if (head == NULL)
-		return;
-
-	while (head != NULL)
+	if (head)
 	{
-		node = head;
-		head = head->next;
-		free(node);
+		next = head->next;
+		while (current)
+		{
+			free(current);
+			current = next;
+			if (next)
+				next = next->next;
+		}
 	}
 }
 

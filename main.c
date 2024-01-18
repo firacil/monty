@@ -13,7 +13,7 @@ void err_usage(void);
 int main(int argc, char **av)
 {
 	stack_t *stack = NULL;
-	char *buffer, *str = NULL;
+	char *buffer = NULL, *str = NULL;
 	unsigned int line_no = 1;
 	int stat = 0;
 	FILE *fd;
@@ -44,6 +44,7 @@ int main(int argc, char **av)
 		global.argus = strtok(NULL, " \t\n");
 		runner(&stack, str, line_no);
 		line_no++;
+
 	}
 	free(buffer);
 	free_stack(stack);
