@@ -67,3 +67,24 @@ void _div(stack_t **stack, unsigned int line_no)
 	(*stack)->next->n = divide;
 	pop(stack, line_no);
 }
+
+/**
+ * _mul - multiply to nodes.
+ * @stack: pointer to first.
+ * @line_no: line number.
+ * Return: Nothing
+ */
+void _mul(stack_t **stack, unsigned int line_no)
+{
+	int multi;
+
+	if (!stack || !(*stack) || !((*stack)->next))
+	{
+		fprintf(stderr, "L%d: can't mul, stack too short\n", line_no);
+		exit(EXIT_FAILURE);
+	}
+	
+	multi = ((*stack)->next->n) * ((*stack)->n);
+	(*stack)->next->n = multi;
+	pop(stack, line_no);
+}

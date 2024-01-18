@@ -1,3 +1,5 @@
 push 1
-div
+push 2
+push 3
+mul
 pall
