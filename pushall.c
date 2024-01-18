@@ -8,22 +8,27 @@
  */
 void push(stack_t **stack, unsigned int line_no)
 {
-	stack_t *new, *h = *stack;
+	char *n = global.argus;
 
-	if (stack == NULL)
+	if ((is_digit(n)) == 0)
 	{
 		fprintf(stderr, "L%d: usage: push integer", line_no);
 		exit(EXIT_FAILURE);
 	}
-	new = malloc(sizeof(stack_t));
-	if (new == NULL)
-		exit(EXIT_FAILURE);
-	new->prev = NULL;
-	new->n = atoi(global.argus);
-	new->next = *stack;
-	if (*stack)
-		h->prev = new;
-	*stack = new;
+	if (global.datas == 1)
+	{
+		if (!addn(stack, atoi(global.argus)))
+		{
+			exit(EXIT_FAILURE);
+		}
+	}
+	else
+	{
+		if (!qnod(stack, atoi(global.argus)))
+		{
+			exit(EXIT_FAILURE);
+		}
+	}
 }
 
 /**
@@ -33,17 +38,7 @@ void push(stack_t **stack, unsigned int line_no)
  * Return: Nothing.
  */
 
-void pall(stack_t **stack, unsigned int line_no)
+void pall(stack_t **stack, unsigned int line_no __attribute__((unused)))
 {
-	stack_t *head = *stack;
-	(void)line_no;
-
-	if (head == NULL)
-		return;
-
-	while (head)
-	{
-		printf("%d\n", head->n);
-		head = head->next;
-	}
+	print_stack(*stack);
 }

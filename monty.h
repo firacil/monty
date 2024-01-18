@@ -59,12 +59,16 @@ help global;
 
 void runner(stack_t **stack, char *str, unsigned int line_no);
 int nlfind(char *list);
+int is_digit(char *string);
+stack_t *addn(stack_t **stack, const int n);
+stack_t *qnod(stack_t **stack, const int n);
 int combfind(char *list, int ln);
 int pushit(char *list, int ln);
 void free_stack(stack_t *head);
 int _strcmp(char *pcode, char *list);
 
 /* Instructions */
+size_t print_stack(const stack_t *stack);
 void pall(stack_t **stack, unsigned int line_no);
 void push(stack_t **stack, unsigned int line_no);
 void pop(stack_t **stack, unsigned int line_no);
