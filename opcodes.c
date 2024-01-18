@@ -23,3 +23,20 @@ void pchar(stack_t **stack, unsigned int line_no)
 	}
 	printf("%c\n", (*stack)->n);
 }
+
+/**
+ * pstr - prints string starting at top of stack.
+ * @stack: pointer to top.
+ * @line_no: file line number.
+ */
+void pstr(stack_t **stack, unsigned int line_no __attribute__((unused)))
+{
+	while ((*stack))
+	{
+		if ((*stack)->n <= 0 || (*stack)->n > 127)
+			break;
+		putchar((char) (*stack)->n);
+		(*stack) = (*stack)->next;
+	}
+	putchar('\n');
+}
