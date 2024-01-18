@@ -31,12 +31,14 @@ void pchar(stack_t **stack, unsigned int line_no)
  */
 void pstr(stack_t **stack, unsigned int line_no __attribute__((unused)))
 {
-	while ((*stack))
+	stack_t *curr = *stack;
+
+	while (curr)
 	{
-		if ((*stack)->n <= 0 || (*stack)->n > 127)
+		if (curr->n <= 0 || curr->n > 127)
 			break;
-		putchar((char) (*stack)->n);
-		(*stack) = (*stack)->next;
+		putchar((char) curr->n);
+		curr = curr->next;
 	}
 	putchar('\n');
 }
