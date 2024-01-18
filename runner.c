@@ -18,7 +18,9 @@ void runner(stack_t **stack, char *str, unsigned int line_no)
 		{"pop", pop},
 		{"pint", pint},
 		{"nop", nop},
-		{"NULL", NULL}
+		{
+			NULL, NULL
+		}
 	};
 
 	if (!strcmp(str, "stack"))
