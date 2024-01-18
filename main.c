@@ -1,5 +1,6 @@
 #include "monty.h"
 
+int stat = 0;
 
 /**
  * main - interpreter of mony language.
@@ -8,32 +9,46 @@
  * Return: value 0 at success
  */
 
-int main(int argc, char *av[])
+int main(int argc, char **av)
 {
 	stack_t *stack = NULL;
-	static char *string[1000] = {NULL};
-	int n = 0;
+	char *buffer, *str = NULL;
+	unsigned int line_no = 1;
 	FILE *fd;
-	size_t buf_size = 1000;
+	size_t buf_size = 0;
 
+	global.datas = 1;
 	if (argc != 2) /* checks for arg number */
 	{
 		fprintf(stderr, "USAGE: monty file\n");
 		exit(EXIT_FAILURE);
 	}
-
 	fd = fopen(av[1], "r");
 	if (fd == NULL)
 	{
 		fprintf(stderr, "Error: Can't open file %s\n", av[1]);
 		exit(EXIT_FAILURE);
 	}
-
-	for (n = 0; getline(&(string[n]), &buf_size, fd) > 0; n++)
-		;
-
-	runner(string, stack);
-	flist(string);
+	while ((getline(&buffer, &buf_size, fd)) != (-1))
+	{
+		if (stat)
+			break;
+		if (*buffer == '\n')
+		{
+			line_no++, continue;
+		}
+		str = strtok(buffer, " \t\n");
+		if (!str || *str == '#')
+		{
+			line_no++;
+			continue;
+		}
+		global.argus = strtok(NULL, " \t\n");
+		runner(&stack, str, line_no);
+		line_no++;
+	}
+	free(buffer);
+	free_stack(stack);
 	fclose(fd);
-	return (0);
+	exit(EXIT_SUCCESS);
 }

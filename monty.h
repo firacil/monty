@@ -11,7 +11,6 @@
 #include <errno.h>
 #include <fcntl.h>
 #include <sys/types.h>
-#include <sys/stat.h>
 #include <sys/syscall.h>
 
 /**
@@ -44,10 +43,21 @@ typedef struct instruction_s
 	void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
+/**
+ * struct help - argument for opcode
+ * @datas: stack mode.
+ * @argus: arguments of string.
+ */
+typedef struct help
+{
+	int datas;
+	char *argus;
+} help;
+help global;
+
 /* Prototypes */
 
-void runner(char *string[], stack_t *stack);
-void flist(char *arr[]);
+void runner(stack_t **stack, char *str, unsigned int line_no);
 int nlfind(char *list);
 int combfind(char *list, int ln);
 int pushit(char *list, int ln);
@@ -56,7 +66,7 @@ int _strcmp(char *pcode, char *list);
 
 /* Instructions */
 void pall(stack_t **stack, unsigned int line_no);
-void push(stack_t **stack, unsigned int line_no, int n);
+void push(stack_t **stack, unsigned int line_no);
 void pop(stack_t **stack, unsigned int line_no);
 void pint(stack_t **stack, unsigned int line_no);
 #endif

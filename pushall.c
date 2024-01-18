@@ -4,10 +4,9 @@
  * push - pushes element to the stack.
  * @stack: pointer to head of stack.
  * @line_no: file's line number
- * @n: variable data
  * Return: address of new element.
  */
-void push(stack_t **stack, unsigned int line_no, int n)
+void push(stack_t **stack, unsigned int line_no)
 {
 	stack_t *new, *h = *stack;
 
@@ -20,7 +19,7 @@ void push(stack_t **stack, unsigned int line_no, int n)
 	if (new == NULL)
 		exit(EXIT_FAILURE);
 	new->prev = NULL;
-	new->n = n;
+	new->n = atoi(global.argus);
 	new->next = *stack;
 	if (*stack)
 		h->prev = new;

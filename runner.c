@@ -2,50 +2,44 @@
 
 /**
  * runner - execute opcodes
- * @string: content of file.
+ * @str: content of file.
  * @stack: list.
+ * @line_no: file line number.
  * Return: Nothing.
  */
 
-void runner(char *string[], stack_t *stack)
+void runner(stack_t **stack, char *str, unsigned int line_no)
 {
-	int ln, n, i;
+	int i = 0;
 
 	instruction_t st[] = {
+		{"push", push},
 		{"pall", pall},
 		{"pop", pop},
 		{"pint", pint},
 		{"NULL", NULL}
 	};
 
-	for (ln = 1, n = 0; string[n + 1]; n++, ln++)
+	if (!strcmp(str, "stack"))
 	{
-		if (_strcmp("push", string[n]))
-		{
-			push(&stack, ln, pushit(string[n], ln));
-		}
-		else if (_strcmp("nop", string[n]))
-			;
-		else
-		{
-			i = 0;
-			while (!_strcmp(st[i].opcode, "null"))
-			{
-				if (_strcmp(st[i].opcode, string[n]))
-				{
-					st[i].f(&stack, ln);
-					break;
-				}
-				i++;
-			}
-			if (_strcmp(st[i].opcode, "null") && !_strcmp(string[n], "\n"))
-			{
-				fprintf(stderr, "L%u: unknown instruction %s", ln, string[n]);
-				if (!nlfind(string[n]))
-					fprintf(stderr, "\n");
-				exit(EXIT_FAILURE);
-			}
-		}
+		global.datas = 1;
+		return;
 	}
-	free_stack(stack);
+	if (!strcmp(str, "queue"))
+	{
+		global.datas = 0;
+		return;
+	}
+
+	while (st[i].opcode)
+	{
+		if (strcmp(st[i].opcode, str) == 0)
+		{
+			st[i].f(stack, line_no);
+			return;
+		}
+		i++;
+	}
+	fprintf(stderr, "L%d: unknown instruction %s\n", line_no, str);
+	exit(EXIT_FAILURE);
 }
