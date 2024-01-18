@@ -16,3 +16,15 @@ void pint(stack_t **stack, unsigned int line_no)
 	}
 	printf("%d\n", (*stack)->n);
 }
+
+/**
+ * nop - does nothing.
+ * @stack: stack
+ * @line_no: line number.
+ * Return: Nothing.
+ */
+void nop(stack_t **stack, unsigned int line_no)
+{
+	(void) stack;
+	(void) line_no;
+}
