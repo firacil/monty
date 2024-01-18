@@ -14,7 +14,7 @@ void runner(stack_t **stack, char *str, unsigned int line_no)
 
 	instruction_t st[] = {
 		{"push", push}, {"sub", sub},
-		{"pall", pall},
+		{"pall", pall}, {"div", _div},
 		{"pop", pop},
 		{"pint", pint},
 		{"swap", swap},
