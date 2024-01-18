@@ -1,5 +1,8 @@
 #include "monty.h"
 
+void file_err(char *argv);
+void err_usage(void);
+
 /**
  * main - interpreter of mony language.
  * @argc: argument count.
@@ -18,22 +21,19 @@ int main(int argc, char **av)
 
 	global.datas = 1;
 	if (argc != 2) /* checks for arg number */
-	{
-		fprintf(stderr, "USAGE: monty file\n"), exit(EXIT_FAILURE);
-	}
+		err_usage();
+
 	fd = fopen(av[1], "r");
 	if (fd == NULL)
-	{
-		fprintf(stderr, "Error: Can't open file %s\n", av[1]);
-		exit(EXIT_FAILURE);
-	}
+		file_err(av[1]);
 	while ((getline(&buffer, &buf_size, fd)) != (-1))
 	{
 		if (stat)
 			break;
 		if (*buffer == '\n')
 		{
-			line_no++, continue;
+			line_no++;
+			continue;
 		}
 		str = strtok(buffer, " \t\n");
 		if (!str || *str == '#')
@@ -49,4 +49,25 @@ int main(int argc, char **av)
 	free_stack(stack);
 	fclose(fd);
 	exit(EXIT_SUCCESS);
+}
+
+/**
+ * file_err - prints file err messege.
+ * @argv: argv given by main()
+ * Return: Nothing
+ */
+void file_err(char *argv)
+{
+	fprintf(stderr, "Error: Can't open file %s\n", argv);
+	exit(EXIT_FAILURE);
+}
+
+/**
+ * err_usage - prints usage message and exists.
+ * Return: nothing.
+ */
+void err_usage(void)
+{
+	fprintf(stderr, "USAGE: monty file\n");
+	exit(EXIT_FAILURE);
 }
