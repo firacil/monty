@@ -16,7 +16,7 @@ void runner(stack_t **stack, char *str, unsigned int line_no)
 		{"push", push}, {"sub", sub},
 		{"pall", pall}, {"div", _div},
 		{"pop", pop}, {"mul", _mul},
-		{"pint", pint},
+		{"pint", pint}, {"mod", mod},
 		{"swap", swap},
 		{"add", add},
 		{"nop", nop},

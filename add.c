@@ -88,3 +88,30 @@ void _mul(stack_t **stack, unsigned int line_no)
 	(*stack)->next->n = multi;
 	pop(stack, line_no);
 }
+
+/**
+ * mod - will find reminder of nodes.
+ * @stack: pointer to first element.
+ * @line_no: line number.
+ * Return: Nothing.
+ */
+
+void mod(stack_t **stack, unsigned int line_no)
+{
+	int r;
+
+	if (!stack || !(*stack) || !((*stack)->next))
+	{
+		fprintf(stderr, "L%d: can't mod, stack too short\n", line_no);
+		exit(EXIT_FAILURE);
+	}
+	else if ((*stack) && ((*stack)->n == 0))
+	{
+		fprintf(stderr, "L%d: division by zero\n", line_no);
+		exit(EXIT_FAILURE);
+	}
+
+	r = ((*stack)->next->n) % ((*stack)->n);
+	(*stack)->next->n = r;
+	pop(stack, line_no);
+}
