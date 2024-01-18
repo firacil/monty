@@ -54,7 +54,7 @@ void _div(stack_t **stack, unsigned int line_no)
 
 	if (!stack || !(*stack) || !((*stack)->next))
 	{
-		fprintf(stderr, "L%d: can't div, stack too short", line_no);
+		fprintf(stderr, "L%d: can't div, stack too short\n", line_no);
 		exit(EXIT_FAILURE);
 	}
 	else if ((*stack) && ((*stack)->n == 0))
