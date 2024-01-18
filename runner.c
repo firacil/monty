@@ -14,7 +14,8 @@ void runner(char *string[], stack_t *stack)
 	instruction_t st[] = {
 		{"pall", pall},
 		{"pop", pop},
-		{"null", NULL}
+		{"pint", pint},
+		{"NULL", NULL}
 	};
 
 	for (ln = 1, n = 0; string[n + 1]; n++, ln++)
