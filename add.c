@@ -64,6 +64,6 @@ void _div(stack_t **stack, unsigned int line_no)
 	}
 
 	divide = ((*stack)->next->n) / ((*stack)->n);
+	(*stack)->next->n = divide;
 	pop(stack, line_no);
-	(*stack)->n = divide;
 }
