@@ -1,7 +1,5 @@
 #include "monty.h"
 
-int stat = 0;
-
 /**
  * main - interpreter of mony language.
  * @argc: argument count.
@@ -14,14 +12,14 @@ int main(int argc, char **av)
 	stack_t *stack = NULL;
 	char *buffer, *str = NULL;
 	unsigned int line_no = 1;
+	int stat = 0;
 	FILE *fd;
 	size_t buf_size = 0;
 
 	global.datas = 1;
 	if (argc != 2) /* checks for arg number */
 	{
-		fprintf(stderr, "USAGE: monty file\n");
-		exit(EXIT_FAILURE);
+		fprintf(stderr, "USAGE: monty file\n"), exit(EXIT_FAILURE);
 	}
 	fd = fopen(av[1], "r");
 	if (fd == NULL)
