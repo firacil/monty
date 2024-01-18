@@ -13,6 +13,8 @@ stack_t *qnod(stack_t **stack, const int n)
 
 	if (!new)
 	{
+		fprintf(stderr, "Error: malloc failedi\n");
+		exit(EXIT_FAILURE);
 		free(new);
 		return (NULL);
 	}
@@ -54,6 +56,7 @@ stack_t *addn(stack_t **stack, const int n)
 	if (!new)
 	{
 		fprintf(stderr, "Error: malloc failed\n");
+		exit(EXIT_FAILURE);
 		free(new);
 		return (NULL);
 	}
