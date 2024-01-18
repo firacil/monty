@@ -58,14 +58,10 @@ help global;
 /* Prototypes */
 
 void runner(stack_t **stack, char *str, unsigned int line_no);
-int nlfind(char *list);
 int is_digit(char *string);
 stack_t *addn(stack_t **stack, const int n);
 stack_t *qnod(stack_t **stack, const int n);
-int combfind(char *list, int ln);
-int pushit(char *list, int ln);
 void free_stack(stack_t *head);
-int _strcmp(char *pcode, char *list);
 
 /* Instructions */
 size_t print_stack(const stack_t *stack);
@@ -75,4 +71,6 @@ void pop(stack_t **stack, unsigned int line_no);
 void nop(stack_t **stack, unsigned int line_no);
 void pint(stack_t **stack, unsigned int line_no);
 void swap(stack_t **stack, unsigned int line_no);
+void add(stack_t **stack, unsigned int line_no);
+
 #endif

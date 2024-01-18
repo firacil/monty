@@ -18,6 +18,7 @@ void runner(stack_t **stack, char *str, unsigned int line_no)
 		{"pop", pop},
 		{"pint", pint},
 		{"swap", swap},
+		{"add", add},
 		{"nop", nop},
 		{
 			NULL, NULL
